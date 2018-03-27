@@ -424,7 +424,7 @@ public class ProductAction extends BaseAction {
 		User userByID = userService.getUserByID(cart.getUser().getID());
 		List<Cart> cartByUser = cartService.getCartByUser(userByID);
 		if(cartByUser != null) {
-			getRequest().setAttribute("cart", cartByUser);
+			getRequest().setAttribute("cartList", cartByUser);
 		}
 		return "gotoCart";
 	}
@@ -454,7 +454,7 @@ public class ProductAction extends BaseAction {
 	public String lookOrder() throws Exception {
 		List<Order> orderByUser = orderService.getOrderByUser(order.getCart().getUser());
 		if(null != orderByUser) {
-			getRequest().setAttribute("order", orderByUser);
+			getRequest().setAttribute("orderList", orderByUser);
 		}
 		return "lookOrder";
 	}
