@@ -215,7 +215,7 @@
 				</div>
 
 				<table>
-						<c:forEach items="${cart }" var="cart">
+						<c:forEach items="${cartList }" var="cart">
 								<tr class="cartinfo_sgoods">
 									<td class="cartinfo_pic first"><img
 										src="${cart.product.proPic }" /></td>
@@ -235,12 +235,12 @@
 						
 						<!-- 此处有bug  当购物车信息为null时不能阻止程序继续运行 -->
 						
-						<s:if test="#request.cart != null">
+						<s:if test="#request.cartList != null">
 									<%
 										//这个算法是为了得到购物车里不同商品的总价
 										List<Cart> list = null;
-											if (request.getAttribute("cart") != null) {
-												list = (List<Cart>) request.getAttribute("cart");
+											if (request.getAttribute("cartList") != null) {
+												list = (List<Cart>) request.getAttribute("cartList");
 												if(list != null && list.size() > 0){
 													
 													float[] priceArray = new float[list.size()];
@@ -274,8 +274,8 @@
 						也就是传一个购物车集合给后台   但是可能会对系统的性能产生很大影响
 						毕竟A标签不是传大量数据的首选
 					-->
-					<s:if test="#request.cart != null">
-						<a href="createOrder.action?cart.id=${cart[0].id }">结算</a>
+					<s:if test="#request.cartList != null">
+						<a href="createOrder.action?cart.id=${cartList[0].id }">结算</a>
 					</s:if>
 				</div>
 
