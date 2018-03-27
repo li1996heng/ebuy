@@ -247,7 +247,7 @@
 				</div>
 
 				<table>
-						<c:forEach items="${order }" var="order">
+						<c:forEach items="${orderList }" var="order">
 							<tr class="cartinfo_sgoods">
 								<td class="cartinfo_pic first"><img
 									src="${order.cart.product.proPic }" /></td>
