@@ -1,0 +1,87 @@
+/* CSS Document */
+
+
+/*背景设置
+.M_bdw{background:url(../img/M_cart_bg2.jpg)}
+.M_bg{width:1200px;height:600px;margin:15px auto;background:#FFC;opacity:0.6;}
+.M_cart{position:absolute;top:160px;left:350px;}
+*/
+.M_cart{width:100%;height:600px;margin:15px auto;}
+.M_cart li{width:150px;float:left;}
+/*头部*/
+.cartinfo_title{border-bottom:3px solid #FCC;width:100%;height:40px;line-height:40px;margin-left: 150px;}
+.cartinfo_title ul{width:1300px;margin-left: 150px;}
+.cartinfo_title li{width:160px;height:40px;float:left;font-size:15px;font-weight:300;text-align:center;}
+.cartinfo_title .first{font-size:25px;font-weight:400px; letter-spacing:3px;color:#F66;}
+
+/*商品表格*/
+.M_cart table{width:1200px;margin:auto;table-layout:fixed;word-break:break-all;word-wrap:break-word;}
+.M_cart tr{height:160px;}
+.M_cart td{width:160px;text-align:center;vertical-align:middle;}/*居中与垂直居中*/
+/*图片设置*/
+.cartinfo_pic img{border:1px solid #000;width:150px;height:150px;}
+/*字体设置*/
+.M_cart em{font-size:13px;color:#F00;}
+.M_cart .txt{font-size:17px;font-weight:600;text-align:center; letter-spacing:3px; word-spacing:3px;}
+.M_cart .txt a{color:#389BFB;font-size:15px;text-decoration:none;}
+.final_value span{height:40px;font-size:20px;font-weight:600;color:#F00;}
+.total span{margin-right:0;}
+
+
+.all_value{border-top:2px dashed #666;width:100%;height:35px;margin:15px 0 0 0;;float:right;}
+.all_valuebox{border:0px solid #F00;width:300px;;height:35px;line-height:35px;float:right;}
+.all_value span{font-size:18px;font-weight:700;display:inline-block;padding-left:10px;text-align:right;letter-spacing:3px; word-spacing:3px;}
+.all_value span+span{font-size:30px;color:#F00;}
+.all_value em{font-size:20px;}
+.all_value em+em{font-size:13px;position:relative;left:7px;}
+
+.M_cart .ftxt{width:450px;height:50px;float:right;}
+.M_cart .ftxt li{width:300px;height:25px;}
+.M_cart .ftxt li span{color:#000;font-size:15px;font-weight:600;line-height:25px;}
+.M_cart .ftxt li span+span{color:#000;font-size:13px;font-weight:normal;}
+
+
+
+.pay{width:1300px;padding-top:15px;float:left;}
+.pay a{width:120px;height:40px;font-size:20px;line-height:40px;text-align:center;color:#FFF;background:#F66;display:block;float:right;text-decoration:none;}
+
+.pay a:hover{width:162px;height:48px;position:relative;top:-4px;left:16px;font-size:28px;line-height:48px;}
+.pay a:active{width:110px;height:34px;position:relative;top:2px;left:-5px;font-size:17px;line-height:37px;}
+/*
+.M_cart .first{width:200px;}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+
+	<package name="p" extends="struts-default">
+
+		<action name="user_toLogin" class="userAction" method="toLogin">
+			<result name="toLogin">/WEB-INF/view/user/login.jsp</result>
+		</action>
+
+		<action name="user_login" class="userAction" method="login">
+			<result name="loginsuccess">/WEB-INF/view/index.jsp</result>
+			<result name="login">/WEB-INF/view/user/login.jsp</result>
+		</action>
+		<action name="user_toRegister" class="userAction" method="toRegister">
+			<result name="toRegister">/WEB-INF/view/user/register.jsp</result>
+		</action>
+
+		<action name="user_register" class="userAction" method="register">
+			<result name="fail_register">/WEB-INF/view/user/register.jsp</result>
+			<result name="register">/WEB-INF/view/user/reg_result.jsp</result>
+		</action>
+
+		<action name="checkUserExist" class="userAction" method="checkUserExist">
+			<result type="stream"></result>
+		</action>
+		<action name="user_logOut" class="userAction" method="logOut">
+			<result name="logOut">/WEB-INF/view/index.jsp</result>
+		</action>
+
+		<action name="searchProduct" class="productAction" method="searchProduct">
+			<result name="list">/WEB-INF/view/product/productMain.jsp</result>
+		</action>
+
+		<action name="searchProductBySmallType" class="productAction"
+			method="searchProductBySmallType">
+			<result name="searchProductBySmallType">/WEB-INF/view/product/productListBySmallType.jsp
+			</result>
+		</action>
+
+		<action name="likeSearch" class="productAction" method="likeSearch">
+			<result name="likeSearch">/WEB-INF/view/product/productListByLikeSelect.jsp
+			</result>
+		</action>
+		
+		<action name="toProduct" class="productAction" method="toProduct">
+			<result name="toProduct">/WEB-INF/admin/productManage.jsp</result>
+		</action>
+		
+		<action name="getProductList" class="productAction" method="getProductList">
+		</action>
+		
+		<action name="saveProduct" class="productAction" method="saveProduct">
+		</action>
+		<action name="setProductHot" class="productAction" method="setProductHot">
+		</action>
+		<action name="getProductDetail" class="productAction" method="getProductDetail">
+			<result name="getProductDetail">/WEB-INF/view/product/productDetail.jsp</result>
+		</action>
+		<action name="toCart" class="productAction" method="toCart">
+			<result name="toCart">/WEB-INF/view/product/cart.jsp</result>
+		</action>
+		<action name="gotoCart" class="productAction" method="gotoCart">
+			<result name="gotoCart">/WEB-INF/view/product/cartList.jsp</result>
+		</action>
+		<action name="lookOrder" class="productAction" method="lookOrder">
+			<result name="lookOrder">/WEB-INF/view/product/order.jsp</result>
+		</action>
+		<action name="createOrder" class="productAction" method="createOrder">
+			<result name="createOrder">/WEB-INF/view/product/order_result.jsp</result>
+		</action>
+		
+		<action name="bigTypeCombobox" class="productBigTypeAction" method="bigTypeCombobox">
+		</action>
+		<action name="smallTypeCombobox" class="productSmallTypeAction" method="smallTypeCombobox">
+		</action>
+
+		<action name="admin_*" class="userAction" method="{1}">
+			<result name="adminLogin">/WEB-INF/admin/main.jsp</result>
+			<result name="adminLoginFail">/WEB-INF/admin/login.jsp</result>
+			<result name="toUserManage">/WEB-INF/admin/userManage.jsp</result>
+		</action>
+
+	</package>
+
+
+
+</struts>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+	<!-- 配置数据源 -->
+	<bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/ebuy"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value=""></property>
+	</bean> 
+	
+	<!-- 配置sessionFactory -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="datasource"></property>
+		<!-- hibernate配置文件 -->
+		<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
+		
+		<!-- 扫描的hibernate注解类 -->
+		<property name="packagesToScan">
+			<list>
+				<value>com.liheng.entity</value>
+			</list>
+		</property>
+		
+	</bean>
+	
+	<!-- 配置HibernateTemplate -->
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate">
+		<!-- 注入SessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+	 	<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 配置事务 -->
+	<tx:advice id="txAdvie" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED"/>
+			<tx:method name="save*" propagation="REQUIRED"/>
+			<tx:method name="get*" read-only="true"/>
+			<tx:method name="*" propagation="REQUIRED"/>
+		</tx:attributes>
+	</tx:advice>
+	
+	<!-- 配置切面 -->	
+	<aop:config>
+		<aop:pointcut expression="execution(* com.liheng.service.*.*(..))" id="pointcut"/>
+		<aop:advisor advice-ref="txAdvie" pointcut-ref="pointcut"/>
+	</aop:config>
+	
+	<!-- 设置自动扫描的包 -->
+	<context:component-scan base-package="com.liheng"></context:component-scan>
+
+</beans>
